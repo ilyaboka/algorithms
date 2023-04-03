@@ -1,7 +1,3 @@
-function booleanFunction(x1, x2, x3, x4) {
-    return x1 && (x2 || x3) && x4;
-}
-
 function isSatisfiable(booleanFunction) {
     for (
         let valuesAsBits = 0;
@@ -22,8 +18,4 @@ function isSatisfiable(booleanFunction) {
     return false;
 }
 
-function booleanSatisfiabilityProblem() {
-    console.log(isSatisfiable(booleanFunction) ? 'Satisfiable' : 'Not satisfiable');
-}
-
-booleanSatisfiabilityProblem();
+module.exports = isSatisfiable;

@@ -53,18 +53,4 @@ function calculateShortestPath(distance) {
     return {length: result.length, path: [0].concat(result.path)};
 }
 
-function travellingSalesmanProblem() {
-    const distance = [
-        [0, 0, 0, 0],
-        [0, 5, 6, 7],
-        [0, 9, 10, 11],
-        [0, 13, 14, 15],
-    ];
-    const shortestPathData = calculateShortestPath(distance);
-
-    console.log(
-        `path: ${shortestPathData.path}, length: ${shortestPathData.length}`
-    );
-}
-
-travellingSalesmanProblem();
+module.exports = calculateShortestPath;
