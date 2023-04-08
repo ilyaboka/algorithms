@@ -1,8 +1,14 @@
 const booleanSatisfiabilityProblem
     = require('./boolean-satisfiability-problem');
 
-test('given x return true', () => { booleanSatisfiabilityProblem((x) => x) });
-
-test('given x and not x return false', () => {
-    expect(booleanSatisfiabilityProblem((x) => x && !x)).toBe(false);
-});
+test.each`
+booleanFunction   | expectedResult | functionDescription
+${(x) => x}       | ${true}        | ${'x'}
+${(x) => x && !x} | ${false}       | ${'x and not x'}
+`(
+    'given $functionDescription, returns $expectedResult',
+    ({booleanFunction, expectedResult}) => {
+        expect(booleanSatisfiabilityProblem(booleanFunction))
+            .toBe(expectedResult);
+    },
+);
